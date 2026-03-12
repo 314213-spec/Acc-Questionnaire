@@ -3,16 +3,9 @@
 import { useState, useEffect } from 'react';
 import { ArrowDown, BrainCircuit, LineChart, CheckCircle, Database, Layout, Users, Star, Lightbulb, MessageSquare, AlertCircle, Loader2 } from 'lucide-react';
 
-// 安全地讀取環境變數，避免在線上沙盒預覽時發生 process is not defined 錯誤
-const getEnv = (key: string) => {
-  if (typeof process !== 'undefined' && process.env) {
-    return process.env[key] || '';
-  }
-  return '';
-};
-
-const supabaseUrl = getEnv('NEXT_PUBLIC_SUPABASE_URL');
-const supabaseKey = getEnv('NEXT_PUBLIC_SUPABASE_ANON_KEY');
+// Next.js 要求 NEXT_PUBLIC_ 環境變數必須以靜態方式存取，才能在建置時正確嵌入
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
