@@ -96,7 +96,13 @@ export default function Home() {
     { 
       id: "intro", title: "序幕：會計 AI 桌遊體驗", desc: "歡迎填寫回饋問卷，幫助我們變得更好！", 
       icon: <Layout className="w-32 h-32 text-blue-400 opacity-80" />, bg: "bg-slate-900",
-      content: <p className="text-slate-300">請向下滾動，我們將從幾個基本問題開始。</p>
+      content: (
+        <div className="text-slate-300 text-left space-y-5 text-base md:text-lg leading-loose tracking-wide">
+          <p>親愛的同學，你（妳）好！這份問卷是用來瞭解你（妳）遊玩此桌遊後的看法，沒有標準答案，也不會影響你（妳）的學業成績，你（妳）可以放心地回答問題。</p>
+          <p>共10題，請根據你（妳）個人的感受，回答最適合的答案。此問卷僅用於改進桌遊，不會對外公布與濫用。</p>
+          <p className="text-center text-blue-400 font-bold mt-8 tracking-normal">請向下滾動，我們將從幾個基本問題開始。</p>
+        </div>
+      )
     },
     { 
       id: "q1", title: "基本問題", desc: "了解你的背景", 
